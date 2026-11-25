@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Việc hôm nay · TODO App</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside>
+    <div class="brand"><span aria-hidden="true">✓</span> TODO App</div>
+    <nav aria-label="Điều hướng">
+      <a href="#today" id="today-link">Việc hôm nay</a>
+      <a href="#stats" id="stats-link">Thống kê</a>
+    </nav>
+    <div id="mode" class="mode"></div>
+  </aside>
+  <main>
+    <p id="date" class="date"></p>
+    <section id="today">
+      <header>
+        <div><h1 id="list-title">Việc hôm nay</h1><p>Quản lý các công việc cá nhân theo hạn, trạng thái và mức ưu tiên.</p></div>
+        <button class="primary" id="add">＋ Thêm công việc</button>
+      </header>
+      <div class="panel">
+        <div class="filters">
+          <label>Tìm công việc<input id="query" type="search" placeholder="Nhập tên công việc"></label>
+          <label>Trạng thái<select id="status-filter"><option value="">Tất cả trạng thái</option></select></label>
+          <label>Ưu tiên<select id="priority-filter"><option value="">Tất cả mức ưu tiên</option></select></label>
+        </div>
+        <label class="toggle"><input id="all-dates" type="checkbox"> Hiển thị mọi ngày</label>
+        <p id="count"></p>
+        <ul id="tasks"></ul>
+      </div>
+    </section>
+    <section id="stats" hidden>
+      <header>
+        <div><h1>Thống kê</h1><p>Tổng hợp tiến độ của các công việc.</p></div>
+        <label class="toggle"><input id="mock" type="checkbox"> Dùng dữ liệu mẫu</label>
+      </header>
+      <div id="metrics" class="metrics"></div>
+      <div class="panel progress">
+        <h2>Tỷ lệ hoàn thành</h2>
+        <strong id="percentage"></strong>
+        <progress id="bar" max="100" value="0" aria-label="Tỷ lệ hoàn thành"></progress>
+      </div>
+    </section>
+    <p id="message" role="status"></p>
+  </main>
+  <dialog id="editor">
+    <form id="task-form">
+      <h2 id="editor-title"></h2>
+      <label>Tên công việc<input name="title" required maxlength="120"></label>
+      <div class="form-grid">
+        <label>Ngày đến hạn<input name="dueDate" type="date" required></label>
+        <label>Ưu tiên<select name="priority"></select></label>
+      </div>
+      <label>Trạng thái<select name="status"></select></label>
+      <p id="form-error" role="alert"></p>
+      <div class="actions"><button type="button" id="cancel">Hủy</button><button class="primary" type="submit">Lưu công việc</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"name":"personal-todo","version":"1.0.0","private":true,"engines":{"node":">=24"},"scripts":{"start":"node server.js","demo":"node server.js --memory","test":"node --test"}}
